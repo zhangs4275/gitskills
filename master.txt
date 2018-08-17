@@ -1,6 +1,10 @@
-й╣╢Рй╣╢Сй╕
-ajsjsadhjasdasdaskjsf
-╟║й╣╢Рй╣╣д
-м╩м╩м╩м╩м╩м╩момомомомомомомомомомомо
-fdafasdasdsadsa
-
+	@Override
+	public AppInfoEntity getAppInfo(String appId) { 
+		AppInfoEntityExample example = new AppInfoEntityExample();
+		example.createCriteria().andAppIdEqualTo(appId);
+		List<AppInfoEntity> appInfoEntities = appInfoEntityMapper.selectByExample(example);
+		if (CollectionUtils.isEmpty(appInfoEntities)) {
+			return null;
+		}
+		return appInfoEntities.get(0);
+	}
