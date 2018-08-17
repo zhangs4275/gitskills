@@ -1,3 +1,8 @@
+	@Autowired
+	private AppInfoBizDao appInfoBizDao;
+	@Autowired
+	private VendorConsumerService vendorConsumerService;
+	
 	@Override
 	public AppInfoEntity getAppInfo(String appId) { 
 		AppInfoEntityExample example = new AppInfoEntityExample();
