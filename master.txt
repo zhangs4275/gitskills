@@ -23,20 +23,7 @@
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		if(StringUtil.isNoneBlank(queryInfo.getAppName()))
 		{
-			List<VendorInfo> vendors = vendorConsumerService.getVendorList(queryInfo.getAppName());
-			if(vendors!=null)
-			{
-				List<String> vendorCodes = new ArrayList<String>();
-				for(VendorInfo v:vendors)
-				{
-					vendorCodes.add(v.getVendorCode());
-				}
-				paramMap.put("vendorCodes", vendorCodes);
-			}
-			else
-			{
-				logger.info("get vendors info is null");
-			}
+			
 		}
 		paramMap.put("appName", queryInfo.getAppName());
 		paramMap.put("appType", queryInfo.getAppType());
