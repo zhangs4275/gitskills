@@ -5,13 +5,6 @@
 
 	@Override
 	public AppInfoEntity getAppInfo(String appId) { 
-		AppInfoEntityExample example = new AppInfoEntityExample();
-		example.createCriteria().andAppIdEqualTo(appId);
-		List<AppInfoEntity> appInfoEntities = appInfoEntityMapper.selectByExample(example);
-		
-		return appInfoEntities.get(0);
-
-	public List<AppInfoBizEntity> queryAppInfoList(AppInfoListRequest queryInfo) {
 		
 		ApiInfoReadRequest apiInfoReadRequest = new ApiInfoReadRequest();
 		apiInfoReadRequest.setWid("10027");
