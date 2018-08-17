@@ -15,9 +15,7 @@
 		apiInfoConsumerService.getApiInfoList(apiInfoReadRequest);
 		
 		
-		if (null == queryInfo) {
-			throw new ParamException(ErrorCode.BIZ_ERROR_NORMAL);
-		}
+		
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		if(StringUtil.isNoneBlank(queryInfo.getAppName()))
 		{
