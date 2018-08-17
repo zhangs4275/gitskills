@@ -3,9 +3,7 @@
 		AppInfoEntityExample example = new AppInfoEntityExample();
 		example.createCriteria().andAppIdEqualTo(appId);
 		List<AppInfoEntity> appInfoEntities = appInfoEntityMapper.selectByExample(example);
-		if (CollectionUtils.isEmpty(appInfoEntities)) {
-			return null;
-		}
+		
 		return appInfoEntities.get(0);
 
 	public List<AppInfoBizEntity> queryAppInfoList(AppInfoListRequest queryInfo) {
