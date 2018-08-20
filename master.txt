@@ -19,8 +19,10 @@
 			}
 			else
 			{
-				logger.info("get ve»¯ËÙ¶ÈÈö");
+
+				logger.info("11111get vendors info is null");
 			}
+
 		}
 		paramMap.put("appName", queryInfo.getAppName());
 		paramMap.put("appType", queryInfo.getAppType());
