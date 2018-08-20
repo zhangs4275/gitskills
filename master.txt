@@ -17,7 +17,10 @@
 				}
 				paramMap.put("vendorCodes", vendorCodes);
 			}
-			
+			else
+			{
+				logger.info("get ve»¯ËÙ¶ÈÈö");
+			}
 		}
 		paramMap.put("appName", queryInfo.getAppName());
 		paramMap.put("appType", queryInfo.getAppType());
