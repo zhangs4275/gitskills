@@ -1,17 +1,4 @@
-
-	@Autowired
-	private AppInfoBizDao appInfoBizDao;
-	@Autowired
-	private VendorConsumerService vendorConsumerService;
-
-	@Override
-	public AppInfoEntity getAppInfo(String appId) { 
-		AppInfoEntityExample example = new AppInfoEntityExample();
-		example.createCriteria().andAppIdEqualTo(appId);
-		List<AppInfoEntity> appInfoEntities = appInfoEntityMapper.selectByExample(example);
-		
-		return appInfoEntities.get(0);
-
+@Override
 	public List<AppInfoBizEntity> queryAppInfoList(AppInfoListRequest queryInfo) {
 		
 		ApiInfoReadRequest apiInfoReadRequest = new ApiInfoReadRequest();
@@ -21,9 +8,27 @@
 		apiInfoConsumerService.getApiInfoList(apiInfoReadRequest);
 		
 		
-		
+		if (null == queryInfo) {
+			throw new ParamException(ErrorCode.BIZ_ERROR_NORMAL);
+		}
 		Map<String,Object> paramMap = new HashMap<String,Object>();
-		
+		if(StringUtil.isNoneBlank(queryInfo.getAppName()))
+		{
+			List<VendorInfo> vendors = vendorConsumerService.getVendorList(queryInfo.getAppName());
+			if(vendors!=null)
+			{
+				List<String> vendorCodes = new ArrayList<String>();
+				for(VendorInfo v:vendors)
+				{
+					vendorCodes.add(v.getVendorCode());
+				}
+				paramMap.put("vendorCodes", vendorCodes);
+			}
+			else
+			{
+				logger.info("get vendors info is null");
+			}
+		}
 		paramMap.put("appName", queryInfo.getAppName());
 		paramMap.put("appType", queryInfo.getAppType());
 		paramMap.put("appOpenWay", queryInfo.getAppOpenWay());
