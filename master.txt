@@ -24,10 +24,7 @@
 				}
 				paramMap.put("vendorCodes", vendorCodes);
 			}
-			else
-			{
-				logger.info("get vendors info is null");
-			}
+			
 		}
 		paramMap.put("appName", queryInfo.getAppName());
 		paramMap.put("appType", queryInfo.getAppType());
